@@ -28,15 +28,15 @@ function show(req, res) {
 }
 
 function store(req, res) {
-  res.json(posts);
+  res.send(`Creazione nuovo post`);
 }
 
 function update(req, res) {
-  res.json(posts);
+  res.send("Modifica integrale del post " + req.params.id);
 }
 
 function modify(req, res) {
-  res.json(posts);
+  res.send("modifica parziale del post " + req.params.id);
 }
 
 function destroy(req, res) {
@@ -59,6 +59,9 @@ function destroy(req, res) {
   console.log(posts);
 
   posts.splice(posts.indexOf(post), 1);
+
+
+  res.sendStatus(204);
 }
 
 module.exports = { index, show, store, update, modify, destroy };
