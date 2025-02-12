@@ -1,0 +1,27 @@
+const express = require("express");
+const router = express.Router();
+const posts = require('../data/posts');
+
+// index
+router.get("/", (req, res));
+  
+  // show
+  router.get(`/:slug`, (req, res) );
+  
+  // store
+  router.post("/", (req, res) );
+  
+  // update
+  
+  router.put("/:slug", (req, res) );
+  
+  // modify
+  
+  router.patch("/:slug", (req, res));
+  
+  // destroy
+  
+  router.delete("/:slug", (req, res) );
+  
+  module.exports = router;
+  
