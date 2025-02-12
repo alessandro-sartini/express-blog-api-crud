@@ -55,11 +55,11 @@ function destroy(req, res) {
     });
   }
 
+  
+  posts.splice(posts.indexOf(post), 1);
+  
   // ! verifico l'eliminazione
   console.log(posts);
-
-  posts.splice(posts.indexOf(post), 1);
-
 
   res.sendStatus(204);
 }
