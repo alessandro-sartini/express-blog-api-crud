@@ -28,19 +28,25 @@ function show(req, res) {
 }
 
 function store(req, res) {
-
   // creo un id automatico sempre +1 su ultimo
   const newId = posts[posts.length - 1].id + 1;
 
+  //todo  CREO il NUOVO post CON POSTMAN
+  const newPost = {
+    id : newId,
+    title : req.body.title,
+    content : req.body.content,
+    image : req.body.image,
+    tags : req.body.tags
+  };
 
+  posts.push(newPost);
+  console.log(posts);
 
-
-
-
-
-
-
-  res.send(`Creazione nuovo post`);
+  // !setto nuovo status
+  res.status(201);
+  //! stampo postman nuovo post
+  res.json(newPost);
 }
 
 function update(req, res) {
@@ -52,9 +58,9 @@ function modify(req, res) {
 }
 
 function destroy(req, res) {
-   // inserisco id in una costante con il parse (altrimenti JSONE)
-   const id = parseInt(req.params.id);
-   //! cerco post con id selezionato
+  // inserisco id in una costante con il parse (altrimenti JSONE)
+  const id = parseInt(req.params.id);
+  //! cerco post con id selezionato
   const post = posts.find((post) => post.id === id);
 
   if (!post) {
@@ -67,9 +73,8 @@ function destroy(req, res) {
     });
   }
 
-  
   posts.splice(posts.indexOf(post), 1);
-  
+
   // ! verifico l'eliminazione
   console.log(posts);
 
