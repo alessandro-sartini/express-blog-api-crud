@@ -8,6 +8,8 @@ app.use(express.static("public"));
 
 app.use("/api/posts", postsRouter);
 
+app.use(express.json());
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });

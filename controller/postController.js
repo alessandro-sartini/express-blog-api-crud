@@ -28,6 +28,18 @@ function show(req, res) {
 }
 
 function store(req, res) {
+
+  // creo un id automatico sempre +1 su ultimo
+  const newId = posts[posts.length - 1].id + 1;
+
+
+
+
+
+
+
+
+
   res.send(`Creazione nuovo post`);
 }
 
