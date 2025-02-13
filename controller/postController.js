@@ -1,4 +1,3 @@
-// const { json } = require("express");
 const posts = require("../data/posts.js");
 
 function index(req, res) {
@@ -66,9 +65,11 @@ function update(req, res) {
     })
   }
 
-
-  post.title = req.body.title;
-  post.tags = req.body.tags;
+  for (const key in req.body) {
+    post[key] = req.body[key];      
+  }
+  // post.title = req.body.title;
+  // post.tags = req.body.tags;
 
   console.log(posts);
   res.json(post);
@@ -78,7 +79,30 @@ function update(req, res) {
 }
 
 function modify(req, res) {
-  res.send("modifica parziale del post " + req.params.id);
+
+  
+  const newId = parseInt(req.params.id);
+
+  const post = posts.find(e => e.id === newId);
+
+  if (!post) {
+    res.status(404);
+
+
+    return res.json({
+      error: "Non trovato",
+      message: "Post non trovato"
+
+    })
+  }
+
+  for (const key in req.body) {
+    post[key] = req.body[key];      
+  }
+
+  console.log(posts);
+  res.json(post);
+
 }
 
 function destroy(req, res) {
