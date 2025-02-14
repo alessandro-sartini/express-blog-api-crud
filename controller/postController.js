@@ -3,7 +3,7 @@ const posts = require("../data/posts.js");
 function index(req, res) {
   let filterPosts = posts;
 
-  // Se la richiesta contiene un filtro, allora filtriamo il menu
+  //! Se la richiesta contiene un filtro, allora filtriamo il menu
   if (req.query.tags) {
     filterPosts = posts.filter((e) => e.tags.includes(req.query.tags));
   }

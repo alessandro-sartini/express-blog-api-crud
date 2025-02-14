@@ -1,7 +1,14 @@
 const express = require("express");
 const router = express.Router();
 
-const {index, show, store, update, modify, destroy} = require("../controller/postController");
+const {
+  index,
+  show,
+  store,
+  update,
+  modify,
+  destroy,
+} = require("../controller/postController");
 
 // index GET
 router.get("/", index);
