@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+// ! destructurin
 const {
   index,
   show,
@@ -9,6 +9,14 @@ const {
   modify,
   destroy,
 } = require("../controller/postController");
+
+// middleWare importato
+const checkTime = require("../middlewares/checkTime");
+
+
+// ! middleware per tute le rotte
+router.use(checkTime);
+
 
 // index GET
 router.get("/", index);

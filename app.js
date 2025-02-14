@@ -3,12 +3,13 @@ const app = express();
 const port = 3000;
 
 const postsRouter = require("./routers/postsRouter");
-// middleWare importato
-const checkTime = require("./middlewares/checkTime");
 
 
-// ! middleware per tute le rotte
-app.use(checkTime);
+// ! middlewar errore globale 
+const errorHandler = require("./middlewares/errorHandler");
+
+app.use(errorHandler);
+
 
 // !cartella public statica
 app.use(express.static("public"));
