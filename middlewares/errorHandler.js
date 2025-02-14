@@ -3,7 +3,7 @@
 function errorHandlare(err, req, res, naxt) {
 
     res.status(500);
-    res.jsone({
+    res.json({
 
         message: err.message,
 

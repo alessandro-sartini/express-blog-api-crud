@@ -10,6 +10,9 @@ const errorHandler = require("./middlewares/errorHandler");
 
 app.use(errorHandler);
 
+const notFound = require("./middlewares/notFound");
+// !  per rotte inesistenti
+app.use(notFound);
 
 // !cartella public statica
 app.use(express.static("public"));
