@@ -10,15 +10,17 @@ const errorHandler = require("./middlewares/errorHandler");
 
 app.use(errorHandler);
 
-const notFound = require("./middlewares/notFound");
-// !  per rotte inesistenti
-app.use(notFound);
 
 // !cartella public statica
 app.use(express.static("public"));
 
 app.use("/api/posts", postsRouter);
 
+const notFound = require("./middlewares/notFound");
+
+// !  per rotte inesistenti
+// todo DEVE STARE SOTTO AL PERCORSO INIZIALE!!
+app.use(notFound);
 
 //! bodyParse per json
 app.use(express.json());
