@@ -2,9 +2,17 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+
+const cors = require('cors')
+
 const postsRouter = require("./routers/postsRouter");
 
 // ! middlewar errore globale
+
+app.use(cors({
+  origin: 'http://localhost:5174'
+}));
+
 const errorHandler = require("./middlewares/errorHandler");
 
 const notFound = require("./middlewares/notFound");

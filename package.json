@@ -11,6 +11,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "cors": "^2.8.5",
+    "course": "^0.0.1",
     "express": "^4.21.2"
   }
 }
