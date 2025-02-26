@@ -14,7 +14,7 @@ function checkTime(req, res, next) {
 
   const utente = os.userInfo().username;
 
-  console.log(` ${utente} con ${osInfo} entrato alle: ${dateNow.getHours()}:${dateNow.getMinutes()}:`);
+  console.log(` ${utente} con ${osInfo} entrato alle: ${dateNow.getHours()}:${dateNow.getMinutes()}`);
 
   // todo per permettere la continuazione del codice
   next();

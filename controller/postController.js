@@ -1,4 +1,4 @@
-const posts = require("../data/posts.js");
+const posts = require("../data/posts");
 
 function index(req, res) {
   let filterPosts = posts;
@@ -32,11 +32,17 @@ function store(req, res) {
 
   //todo  CREO il NUOVO post CON POSTMAN
   const newPost = {
-    id : newId,
-    title : req.body.title,
-    content : req.body.content,
-    image : req.body.image,
-    tags : req.body.tags
+    // id : newId,
+    // title : req.body.title,
+    // content : req.body.content,
+    // image : req.body.image,
+    // tags : req.body.tags
+
+    id: newId,
+    title: req.body.title,
+    content: req.body.content,
+    image: req.body.image,
+    tags: req.body.tags
   };
 
   posts.push(newPost);
@@ -49,60 +55,49 @@ function store(req, res) {
 }
 
 function update(req, res) {
-
   const newId = parseInt(req.params.id);
 
-  const post = posts.find(e => e.id === newId);
+  const post = posts.find((e) => e.id === newId);
 
   if (!post) {
     res.status(404);
 
-
     return res.json({
       error: "Non trovato",
-      message: "Post non trovato"
-
-    })
+      message: "Post non trovato",
+    });
   }
 
   for (const key in req.body) {
-    post[key] = req.body[key];      
+    post[key] = req.body[key];
   }
   // post.title = req.body.title;
   // post.tags = req.body.tags;
 
   console.log(posts);
   res.json(post);
-
-
-
 }
 
 function modify(req, res) {
-
-  
   const newId = parseInt(req.params.id);
 
-  const post = posts.find(e => e.id === newId);
+  const post = posts.find((e) => e.id === newId);
 
   if (!post) {
     res.status(404);
 
-
     return res.json({
       error: "Non trovato",
-      message: "Post non trovato"
-
-    })
+      message: "Post non trovato",
+    });
   }
 
   for (const key in req.body) {
-    post[key] = req.body[key];      
+    post[key] = req.body[key];
   }
 
   console.log(posts);
   res.json(post);
-
 }
 
 function destroy(req, res) {
